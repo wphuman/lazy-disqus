@@ -13,7 +13,7 @@
  * @package           Lazy_Disqus
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Plugin Boilerplate
+ * Plugin Name:       Lazy Disqus
  * Plugin URI:        http://example.com/lazy-disqus-uri/
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
  * Version:           1.0.0

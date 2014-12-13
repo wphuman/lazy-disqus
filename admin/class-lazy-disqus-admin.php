@@ -131,4 +131,27 @@ class Lazy_Disqus_Admin {
 		return apply_filters( 'lazy_disqus_settings_tabs', $tabs );
 	}
 
+	/**
+	 * Show defered admin notices
+	 *
+	 * @since  1.0.0
+	 * @see  http://stackoverflow.com/questions/9807064/wordpress-how-to-display-notice-in-admin-panel-on-plugin-activation
+	 */
+	public function show_enqueued_admin_notices() {
+
+		$notices = Lazy_Disqus_Option::get_enqueued_admin_notices();
+
+		// Quit early if nosaved  admin notices
+		if ( empty( $notices ) ) {
+			return;
+		}
+
+		foreach( $notices as $notice ) {
+			echo "<div class='$notice[class]'><p>$notice[message]</p></div>";
+		}
+
+		Lazy_Disqus_Option::dequeue_admin_notices( $notices );
+
+	} // end show_enqueued_admin_notices
+
 }

@@ -101,22 +101,17 @@ class Lazy_Disqus {
 		 * core plugin.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-lazy-disqus-loader.php';
-
-		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-lazy-disqus-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-lazy-disqus-options.php';
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/settings/class-lazy-disqus-callback-helper.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/settings/class-lazy-disqus-sanitization-helper.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/settings/class-lazy-disqus-settings.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/settings/class-lazy-disqus-meta-box.php';
 
-
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-lazy-disqus-mailing-list-box.php';
-
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-lazy-disqus-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-lazy-disqus-mailing-list-box.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-lazy-disqus-updater.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -155,10 +150,17 @@ class Lazy_Disqus {
 	 */
 	private function define_admin_hooks() {
 
+		// Run update scripts
+		$plugin_updater = new Lazy_Disqus_Updater( $this->get_plugin_name() );
+		$this->loader->add_action( 'admin_init', $plugin_updater, 'update' );
+
 		$plugin_admin = new Lazy_Disqus_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+		// Show defered admin notices
+		$this->loader->add_action( 'admin_notices', $plugin_admin, 'show_enqueued_admin_notices' );
 
 		// Add the options page and menu item.
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_menu' );
@@ -166,7 +168,6 @@ class Lazy_Disqus {
 		// Add an action link pointing to the options page.
 		$plugin_basename = plugin_basename( plugin_dir_path( realpath( dirname( __FILE__ ) ) ) . $this->plugin_name . '.php' );
 		$this->loader->add_action( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'add_action_links' );
-
 
 		// Built the option page
 		$settings_callback = new Lazy_Disqus_Callback_Helper( $this->plugin_name );
@@ -191,6 +192,8 @@ class Lazy_Disqus {
 	 * @access   private
 	 */
 	private function define_public_hooks() {
+
+		$this->loader->add_action( 'init', 'Lazy_Disqus_Option', 'set_global_options' );
 
 		$plugin_public = new Lazy_Disqus_Public( $this->get_plugin_name(), $this->get_version() );
 

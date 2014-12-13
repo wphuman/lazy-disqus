@@ -55,49 +55,20 @@ class Lazy_Disqus_Public {
 	}
 
 	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
+	 * [load_comments_template description]
+	 * @param  [type] $comment_template [description]
+	 * @return [type]                   [description]
 	 */
-	public function enqueue_styles() {
+	public function load_comments_template( $comment_template ) {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Lazy_Disqus_Public_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Lazy_Disqus_Public_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+		global $post;
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/lazy-disqus-public.css', array(), $this->version, 'all' );
+		if ( !( is_singular() && 'open' == $post->comment_status ) ) {
+			return;
+		}
 
+		return plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/lazy-disqus-public-display.php';
 	}
 
-	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Lazy_Disqus_Public_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Lazy_Disqus_Public_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/lazy-disqus-public.js', array( 'jquery' ), $this->version, false );
-
-	}
 
 }

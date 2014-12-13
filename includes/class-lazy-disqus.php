@@ -113,10 +113,7 @@ class Lazy_Disqus {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-lazy-disqus-mailing-list-box.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-lazy-disqus-updater.php';
 
-		/**
-		 * The class responsible for defining all actions that occur in the public-facing
-		 * side of the site.
-		 */
+
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-lazy-disqus-public.php';
 
 		$this->loader = new Lazy_Disqus_Loader();
@@ -197,9 +194,7 @@ class Lazy_Disqus {
 
 		$plugin_public = new Lazy_Disqus_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
+		$this->loader->add_filter( 'comments_template', $plugin_public, 'load_comments_template', 0 );
 	}
 
 	/**

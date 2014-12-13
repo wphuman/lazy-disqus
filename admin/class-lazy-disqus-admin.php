@@ -100,4 +100,46 @@ class Lazy_Disqus_Admin {
 
 	}
 
+	/**
+	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
+	 *
+	 * @since    1.0.0
+	 */
+	public function add_plugin_admin_menu() {
+
+		// Add a settings page for this plugin to the Settings menu.
+		add_menu_page(
+			__( 'Lazy Disqus', $this->plugin_name ),
+			__( 'Lazy Disqus', $this->plugin_name ),
+			'manage_options',
+			$this->plugin_name,
+			array( $this, 'display_plugin_admin_page' )
+			);
+	}
+
+	/**
+	 * Render the settings page for this plugin.
+	 *
+	 * @since    1.0.0
+	 */
+	public function display_plugin_admin_page() {
+		include_once( 'partials/lazy-disqus-admin-display.php' );
+	}
+
+	/**
+	 * Add settings action link to the plugins page.
+	 *
+	 * @since    1.0.0
+	 */
+	public function add_action_links( $links ) {
+
+		return array_merge(
+			array(
+				'settings' => '<a href="' . admin_url( 'admin.php?page=' . $this->plugin_name ) . '">' . __( 'Settings', $this->plugin_name ) . '</a>'
+				),
+			$links
+			);
+
+	}
+
 }

@@ -1,15 +1,17 @@
 <?php
 
 /**
- * Sunny Sanitization Helper Class
+ * Lazy_Disqus Sanitization Helper Class
  *
  * The callback functions of the options page
  *
- * @package    Sunny
- * @subpackage Sunny/admin/settings
- * @author     Tang Rufus <rufus@wphuman.com>
+ * @link       http://example.com
+ * @since      1.0.0
+ *
+ * @package    Lazy_Disqus
+ * @subpackage Lazy_Disqus/admin/settings
  */
-class Sunny_Sanitization_Helper {
+class Lazy_Disqus_Sanitization_Helper {
 
 	/**
 	 * The ID of this plugin.
@@ -38,10 +40,10 @@ class Sunny_Sanitization_Helper {
 	public function __construct( $plugin_name ) {
 
 		$this->plugin_name = $plugin_name;
-		add_filter( 'sunny_settings_sanitize_text', array( $this, 'sanitize_text_field' ) );
-		add_filter( 'sunny_settings_sanitize_email', array( $this, 'sanitize_email_field' ) );
-		add_filter( 'sunny_settings_sanitize_checkbox', array( $this, 'sanitize_checkbox_field' ) );
-		add_filter( 'sunny_settings_sanitize_url', array( $this, 'sanitize_url_field' ) );
+		add_filter( 'lazy_disqus_settings_sanitize_text', array( $this, 'sanitize_text_field' ) );
+		add_filter( 'lazy_disqus_settings_sanitize_email', array( $this, 'sanitize_email_field' ) );
+		add_filter( 'lazy_disqus_settings_sanitize_checkbox', array( $this, 'sanitize_checkbox_field' ) );
+		add_filter( 'lazy_disqus_settings_sanitize_url', array( $this, 'sanitize_url_field' ) );
 
 	}
 
@@ -67,7 +69,7 @@ class Sunny_Sanitization_Helper {
 	 */
 	public function settings_sanitize( $input = array() ) {
 
-		global $sunny_options;
+		global $lazy_disqus_options;
 
 		if ( empty( $_POST['_wp_http_referer'] ) ) {
 			return $input;
@@ -80,7 +82,7 @@ class Sunny_Sanitization_Helper {
 		$tab      = isset( $referrer['tab'] ) ? $referrer['tab'] : 'general';
 
 		$input = $input ? $input : array();
-		$input = apply_filters( 'sunny_settings_' . $tab . '_sanitize', $input );
+		$input = apply_filters( 'lazy_disqus_settings_' . $tab . '_sanitize', $input );
 
 		// Loop through each setting being saved and pass it through a sanitization filter
 		foreach ( $input as $key => $value ) {
@@ -90,17 +92,17 @@ class Sunny_Sanitization_Helper {
 
 			if ( $type ) {
 				// Field type specific filter
-				$input[$key] = apply_filters( 'sunny_settings_sanitize_' . $type, $input[$key], $key );
+				$input[$key] = apply_filters( 'lazy_disqus_settings_sanitize_' . $type, $input[$key], $key );
 
 			}
 
 			// General filter
-			$input[$key] = apply_filters( 'sunny_settings_sanitize', $input[$key], $key );
+			$input[$key] = apply_filters( 'lazy_disqus_settings_sanitize', $input[$key], $key );
 
 			// Key specific on change hook
-			if ( $sunny_options[$key] !== $input[$key] ) {
+			if ( $lazy_disqus_options[$key] !== $input[$key] ) {
 
-				do_action( 'sunny_settings_on_change_' . $key, $value, $sunny_options[$key] );
+				do_action( 'lazy_disqus_settings_on_change_' . $key, $value, $lazy_disqus_options[$key] );
 
 			}
 
@@ -116,8 +118,8 @@ class Sunny_Sanitization_Helper {
 				if ( empty( $input[$key] ) ) {
 
 					// Key specific on change hook
-					do_action( 'sunny_settings_on_change_' . $key, null, $sunny_options[$key] );
-					unset( $sunny_options[$key] );
+					do_action( 'lazy_disqus_settings_on_change_' . $key, null, $lazy_disqus_options[$key] );
+					unset( $lazy_disqus_options[$key] );
 
 				}
 
@@ -125,9 +127,9 @@ class Sunny_Sanitization_Helper {
 		}
 
 		// Merge our new settings with the existing
-		$output = array_merge( $sunny_options, $input );
+		$output = array_merge( $lazy_disqus_options, $input );
 
-		add_settings_error( 'sunny-notices', '', __( 'Settings updated.', $this->plugin_name ), 'updated' );
+		add_settings_error( 'lazy_disqus-notices', '', __( 'Settings updated.', $this->plugin_name ), 'updated' );
 
 		return $output;
 	}

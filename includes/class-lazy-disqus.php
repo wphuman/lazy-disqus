@@ -108,27 +108,15 @@ class Lazy_Disqus {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-lazy-disqus-i18n.php';
 
-		/**
-		 * The class responsible for defining all actions that occur in the Dashboard.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-lazy-disqus-admin.php';
-
-		/**
-		 * The class responsible for registerating all settings via Settings API.
-		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/settings/class-lazy-disqus-callback-helper.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/settings/class-lazy-disqus-sanitization-helper.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/settings/class-lazy-disqus-settings.php';
-
-		/**
-		 * The class responsible for defining all options page meta boxes.
-		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/settings/class-lazy-disqus-meta-box.php';
 
-		/**
-		 * The class responsible for defing the mailing list sign up box.
-		 */
+
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-lazy-disqus-mailing-list-box.php';
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-lazy-disqus-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -178,6 +166,14 @@ class Lazy_Disqus {
 		// Add an action link pointing to the options page.
 		$plugin_basename = plugin_basename( plugin_dir_path( realpath( dirname( __FILE__ ) ) ) . $this->plugin_name . '.php' );
 		$this->loader->add_action( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'add_action_links' );
+
+
+		// Built the option page
+		$settings_callback = new Lazy_Disqus_Callback_Helper( $this->plugin_name );
+		$settings_sanitization = new Lazy_Disqus_Sanitization_Helper( $this->plugin_name );
+		$plugin_settings = new Lazy_Disqus_Settings( $this->get_plugin_name(), $settings_callback, $settings_sanitization);
+		$this->loader->add_action( 'admin_init' , $plugin_settings, 'register_settings' );
+
 
 		$plugin_meta_box = new Lazy_Disqus_Meta_Box( $this->get_plugin_name(), $plugin_admin->get_options_tabs() );
 		$this->loader->add_action( 'load-toplevel_page_lazy-disqus' , $plugin_meta_box, 'add_meta_boxes' );

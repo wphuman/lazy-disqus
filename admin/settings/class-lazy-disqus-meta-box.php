@@ -50,12 +50,6 @@ class Lazy_Disqus_Meta_Box {
 
 		foreach ( $this->options_tabs as $tab_id => $tab_name ) {
 
-			if ( 'tools' == $tab_id ) {
-
-				continue;
-
-			}
-
 			add_meta_box(
 					$tab_id,							// Meta box ID
 					$tab_name,							// Meta box Title

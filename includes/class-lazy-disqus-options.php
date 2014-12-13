@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @link       http://example.com
+ * @link       https://wphuman.com/
  * @since      1.0.0
  *
  * @package    Lazy_Disqus
@@ -16,7 +16,7 @@ class Lazy_Disqus_Option {
 	 * Retrieves all plugin settings.
 	 *
 	 * @since 	1.0.0
-	 * @return 	array Sunny settings
+	 * @return 	array Lazy Disqus settings
 	 */
 	static public function set_global_options() {
 

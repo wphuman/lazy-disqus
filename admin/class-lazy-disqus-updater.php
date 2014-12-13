@@ -5,7 +5,7 @@
  *
  * This class defines all code necessary to run during the plugin's update.
  *
- * @link       http://example.com
+ * @link       https://wphuman.com/
  * @since      1.0.0
  *
  * @package    Lazy_Disqus

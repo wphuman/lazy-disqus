@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Sunny Callback Helper Class
+ * Lazy Disqus Callback Helper Class
  *
  * The callback functions of the options page
  *
- * @link       http://example.com
+ * @link       https://wphuman.com/
  * @since      1.0.0
  *
  * @package    Lazy_Disqus
@@ -68,7 +68,7 @@ class Lazy_Disqus_Callback_Helper {
 	 *
 	 * @since 	1.0.0
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @return 	void
 	 */
 	public function checkbox_callback( $args ) {
@@ -89,7 +89,7 @@ class Lazy_Disqus_Callback_Helper {
 	 *
 	 * @since 	1.0.0
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @return 	void
 	 */
 	public function multicheck_callback( $args ) {
@@ -124,7 +124,7 @@ class Lazy_Disqus_Callback_Helper {
 	 *
 	 * @since 	1.0.0
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @return 	void
 	 */
 	public function radio_callback( $args ) {
@@ -154,7 +154,7 @@ class Lazy_Disqus_Callback_Helper {
 	 *
 	 * @since 	1.0.0
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @return 	void
 	 */
 	public function text_callback( $args ) {
@@ -170,7 +170,7 @@ class Lazy_Disqus_Callback_Helper {
 	 *
 	 * @since 	1.0.0
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @return 	void
 	 */
 	public function email_callback( $args ) {
@@ -186,7 +186,7 @@ class Lazy_Disqus_Callback_Helper {
 	 *
 	 * @since 	1.0.0
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @return 	void
 	 */
 	public function url_callback( $args ) {
@@ -203,7 +203,7 @@ class Lazy_Disqus_Callback_Helper {
 	 * @since 	1.0.0
 	 * @param 	string $type Input Type
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @return 	void
 	 */
 	private function input_type_callback( $type, $args ) {
@@ -230,7 +230,7 @@ class Lazy_Disqus_Callback_Helper {
 	 *
 	 * @since 	1.0.0
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @return 	void
 	 */
 	public function number_callback( $args ) {
@@ -261,7 +261,7 @@ class Lazy_Disqus_Callback_Helper {
 	 *
 	 * @since 	1.0.0
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @return 	void
 	 */
 	public function textarea_callback( $args ) {
@@ -287,7 +287,7 @@ class Lazy_Disqus_Callback_Helper {
 	 *
 	 * @since 	1.0.0
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @return 	void
 	 */
 	public function password_callback( $args ) {
@@ -313,7 +313,7 @@ class Lazy_Disqus_Callback_Helper {
 	 *
 	 * @since 	1.0.0
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @return 	void
 	 */
 	public function select_callback( $args ) {
@@ -346,7 +346,7 @@ class Lazy_Disqus_Callback_Helper {
 	 *
 	 * @since 	1.0.0
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @global 	$wp_version WordPress Version
 	 */
 	public function rich_editor_callback( $args ) {
@@ -378,7 +378,7 @@ class Lazy_Disqus_Callback_Helper {
 	 *
 	 * @since 	1.0.0
 	 * @param 	array $args Arguments passed by the setting
-	 * @global 	$lazy_disqus_options Array of all the Sunny Options
+	 * @global 	$lazy_disqus_options Array of all the Lazy Disqus Options
 	 * @return 	void
 	 */
 	public function upload_callback( $args ) {

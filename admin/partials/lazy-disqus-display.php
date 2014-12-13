@@ -5,7 +5,7 @@
  *
  * This file is used to markup the public-facing aspects of the plugin.
  *
- * @link       http://example.com
+ * @link       https://wphuman.com/
  * @since      1.0.0
  *
  * @package    Lazy_Disqus
@@ -20,7 +20,7 @@ ob_start();
 <div class="wrap">
 	<h2><?php echo esc_html( get_admin_page_title() ); ?> <em>by <a href="https://wphuman.com/">WP Human</a></em></h2>
 
-	<?php settings_errors( 'lazy-disqus-notices' ); ?>
+	<?php settings_errors( 'lazy_disqus-notices' ); ?>
 
 	<h2 class="nav-tab-wrapper">
 		<?php

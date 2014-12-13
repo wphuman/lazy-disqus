@@ -1,6 +1,6 @@
 === Lazy Disqus ===
 Contributors: tangrufus, wphuman
-Donate link: http://example.com/
+Donate link: https://wphuman.com/
 Tags: comments, disqus, comment, lazy load
 Requires at least: 3.6.0
 Tested up to: 4.1.0

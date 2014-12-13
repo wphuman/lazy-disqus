@@ -3,7 +3,7 @@
 /**
  * Fired during plugin activation
  *
- * @link       http://example.com
+ * @link       https://wphuman.com/
  * @since      1.0.0
  *
  * @package    Lazy_Disqus
@@ -18,7 +18,7 @@
  * @since      1.0.0
  * @package    Lazy_Disqus
  * @subpackage Lazy_Disqus/includes
- * @author     Your Name <email@example.com>
+ * @author     Tang Rufus @ WP Human <rufus@wphuman.com>
  */
 class Lazy_Disqus_Activator {
 
@@ -31,7 +31,7 @@ class Lazy_Disqus_Activator {
 	 */
 	public static function activate( $network_wide ) {
 
-		// Sunny should never be network wide
+		// Lazy Disqus should never be network wide
 		if ( $network_wide ) {
 
 			deactivate_plugins( plugin_basename( __FILE__ ), true, true );

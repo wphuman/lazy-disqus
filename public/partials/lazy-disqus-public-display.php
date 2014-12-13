@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Load the disqus area
+ *
+ * @link       https://wphuman.com/
+ * @since      1.0.0
+ *
+ * @package    Lazy_Disqus
+ * @subpackage Lazy_Disqus/public/partials
+ */
+
 $disqus_shortname = Lazy_Disqus_Option::get_option( 'disqus_shortname' );
 $disqus_identifier = get_permalink();
 $disqus_title = get_the_title();

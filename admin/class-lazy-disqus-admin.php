@@ -3,22 +3,12 @@
 /**
  * The dashboard-specific functionality of the plugin.
  *
- * @link       http://example.com
- * @since      1.0.0
- *
- * @package    Lazy_Disqus
- * @subpackage Lazy_Disqus/admin
- */
-
-/**
- * The dashboard-specific functionality of the plugin.
- *
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the dashboard-specific stylesheet and JavaScript.
  *
  * @package    Lazy_Disqus
  * @subpackage Lazy_Disqus/admin
- * @author     Your Name <email@example.com>
+ * @author     Tang Rufus @ WP Human <rufus@wphuman.com>
  */
 class Lazy_Disqus_Admin {
 

@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the dashboard.
  *
- * @link       http://example.com
+ * @link       https://wphuman.com/
  * @since      1.0.0
  *
  * @package    Lazy_Disqus
@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    Lazy_Disqus
  * @subpackage Lazy_Disqus/includes
- * @author     Your Name <email@example.com>
+ * @author     Tang Rufus @ WP Human <rufus@wphuman.com>
  */
 class Lazy_Disqus {
 

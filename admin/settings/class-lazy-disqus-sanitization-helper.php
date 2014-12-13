@@ -5,7 +5,7 @@
  *
  * The callback functions of the options page
  *
- * @link       http://example.com
+ * @link       https://wphuman.com/
  * @since      1.0.0
  *
  * @package    Lazy_Disqus

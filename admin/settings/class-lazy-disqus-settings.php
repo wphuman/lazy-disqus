@@ -140,7 +140,7 @@ class Lazy_Disqus_Settings {
 				'disqus_shortname' => array(
 					'id' => 'disqus_shortname',
 					'name' => __( 'Disqus Usernames', $this->plugin_name ),
-					'desc' => __( ' Your shortname is different than your username. So, <a  target="_blank" href="https://help.disqus.com/customer/portal/articles/466208">what is a shortname?</a>', $this->plugin_name ),
+					'desc' => __( ' Your shortname is different than your username. <br />So, <a  target="_blank" href="https://help.disqus.com/customer/portal/articles/466208">what is a shortname?</a>', $this->plugin_name ),
 					'type' => 'text'
 					)
 				) // end General Settings

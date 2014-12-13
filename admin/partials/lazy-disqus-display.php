@@ -18,8 +18,7 @@ $active_tab = isset( $_GET[ 'tab' ] ) && array_key_exists( $_GET['tab'], $this->
 ob_start();
 ?>
 <div class="wrap">
-	<h2><?php echo esc_html( get_admin_page_title() ); ?> </h2>
-	<em>by <a href="https://wphuman.com/">WP Human</a></em>
+	<h2><?php echo esc_html( get_admin_page_title() ); ?> <em>by <a href="https://wphuman.com/">WP Human</a></em></h2>
 
 	<?php settings_errors( 'lazy-disqus-notices' ); ?>
 

@@ -2,3 +2,12 @@
  * All of the CSS for your dashboard-specific functionality should be
  * included in this file.
  */
+
+.toplevel_page_lazy-disqus div.inside a {
+	font-family: 'Lucida Grande', Verdana, Arial, 'Bitstream Vera Sans', sans-serif;
+	text-decoration: none;
+}
+
+.toplevel_page_lazy-disqus div.inside a:hover {
+	text-decoration: underline;
+}

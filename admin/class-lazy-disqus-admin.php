@@ -61,18 +61,6 @@ class Lazy_Disqus_Admin {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Lazy_Disqus_Admin_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Lazy_Disqus_Admin_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/lazy-disqus-admin.css', array(), $this->version, 'all' );
 
 	}
@@ -84,19 +72,7 @@ class Lazy_Disqus_Admin {
 	 */
 	public function enqueue_scripts() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Lazy_Disqus_Admin_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Lazy_Disqus_Admin_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/lazy-disqus-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( 'postbox' );
 
 	}
 
@@ -123,7 +99,7 @@ class Lazy_Disqus_Admin {
 	 * @since    1.0.0
 	 */
 	public function display_plugin_admin_page() {
-		include_once( 'partials/lazy-disqus-admin-display.php' );
+		include_once( 'partials/lazy-disqus-display.php' );
 	}
 
 	/**
@@ -140,6 +116,19 @@ class Lazy_Disqus_Admin {
 			$links
 			);
 
+	}
+
+	/**
+	 * Retrieve settings tabs
+	 *
+	 * @since 	1.0.0
+	 */
+	public function get_options_tabs() {
+
+		$tabs 					= array();
+		$tabs['general']  		= __( 'General', $this->plugin_name );
+
+		return apply_filters( 'lazy_disqus_settings_tabs', $tabs );
 	}
 
 }

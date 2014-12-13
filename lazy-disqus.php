@@ -34,9 +34,9 @@ if ( ! defined( 'WPINC' ) ) {
  * The code that runs during plugin activation.
  * This action is documented in includes/class-lazy-disqus-activator.php
  */
-function activate_lazy_disqus() {
+function activate_lazy_disqus( $network_wide ) {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-lazy-disqus-activator.php';
-	Lazy_Disqus_Activator::activate();
+	Lazy_Disqus_Activator::activate( $network_wide );
 }
 
 /**

@@ -15,7 +15,7 @@ Lazy load Disqus comments, Max speed!
 Lazy load Disqus comments, Max speed!
 Don't let Disqus drag your feet.
 
-=== Lazy Disqus does one job and do it well ===
+= Lazy Disqus does one job and do it well =
 Defer Disqus loading.
 
 This is why Lazy Disqus:

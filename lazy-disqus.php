@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Lazy Disqus
  * Plugin URI:        https://wphuman.com/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
+ * Description:       Defer Disqus loading
  * Version:           1.0.0
  * Author:            Tang Rufus @ WP Human
  * Author URI:        https://wphuman.com/
